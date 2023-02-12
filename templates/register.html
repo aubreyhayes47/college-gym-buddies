@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div style="text-align:center;">
+        <h2 class="text-primary">Register</h2>
+        <form action="/register" method="post">
+            <div class="d-inline-flex mx-auto w-50">
+                <div class="form-floating w-50">
+                    <input autocomplete="off" autofocus id="firstName" name="firstName" placeholder="First Name" type="text" class="form-control">
+                    <label for="firstName">First Name</label>
+                </div>
+                
+                <select class="form-select" id="university" name="university" aria-label="Select a university" required>
+                    <option selected disabled>University</option>
+                    <option value="Drexel University">Drexel University</option>
+                    <option value="Temple University">Temple University</option>
+                    <option value="University of Pennsylvania">University of Pennsylvania</option>
+                </select>
+            </div>
+           
+            <div class="form-floating mx-auto w-50 login-div">
+                <input autocomplete="off" id="email" name="email" placeholder="name@college.edu" type="email" class="form-control">
+                <label for="email">Email Address</label>
+            </div>
+            <div class="form-floating mx-auto w-50 login-div">
+                <input autocomplete="off" id="password" name="password" placeholder="Password" type="password" class="form-control">
+                <label for="password">Password</label>
+            </div>
+            <div class="form-floating mx-auto w-50 login-div">
+                <input autocomplete="off" id="confirmation" name="confirmation" placeholder="Confirm Password" class="form-control" type="password">
+                <label for="confirmation">Confirm Password</label>
+            </div>
+            {% block fail %}{% endblock %}
+            <br>
+            <button class = "btn btn-primary" type="submit">Register</button>
+        </form>
+    </div>
+{% endblock %}

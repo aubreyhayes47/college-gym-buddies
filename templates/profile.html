@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+{% block body %}
+<h1 class="text-primary text-center">Your Profile</h1>
+<form action="/profile" method="post" id="form" enctype="multipart/form-data">
+    <div class="d-flex flex-row">
+        <div class="card w-50 mx-auto my-3" style="max-width: 540px;">
+            <div class="row g-0">
+            <div class="col-md-4">
+                {% if pic == false %}
+                    <img src="/static/user-icon.png" class="img-fluid rounded-start" alt="Profile Picture" style="margin-bottom: 3rem;">
+                {% else %}
+                    <img src='{{ picUrl }}' class="img-fluid rounded-start" alt="Profile Picture" style="margin-bottom: 3rem;">
+                {% endif %}
+                <input class="form-control form-control-sm w-50" id="picSelect" name="picSelect" type="file" accept="image/*" style="position:absolute;bottom: 0.2rem; left:0.5rem">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title">{{ firstName }}</h3>
+                    <h5 class="card-subtitle">{{ uni }}</h5>
+                    <textarea class="form-control " id="bio" name="bio" form="form">{{ bio }}</textarea>
+                    <input class="btn btn-secondary btn-sm mt-5" type="submit" value="Submit" style="position: absolute;bottom: 0.2rem;right: 0.5rem;">
+                </div>    
+            </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

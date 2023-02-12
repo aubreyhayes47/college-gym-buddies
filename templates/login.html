@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}Log In{% endblock %}
+
+{% block body %}
+    <div class="text-center text-primary">
+        {% block success %}{% endblock %}
+    </div>
+    <div style="text-align:center;">
+        <h2 class="my-2 text-primary text-center">Log In</h2>
+        <form action="/login" method="post">
+            <br>
+            <div class="form-floating mx-auto w-50">
+                <input autocomplete="off" id="email" name="email" placeholder="name@college.edu" type="email" class="form-control">
+                <label for="email">Email Address</label>
+            </div>            <br>
+            <div class="form-floating mx-auto w-50">
+                <input autocomplete="off" id="password" name="password" placeholder="Password" type="password" class="form-control">
+                <label for="password">Password</label>
+            </div>
+            {% block fail %}{% endblock %}
+            <br>
+            <button class="btn btn-primary" type="submit">Log In</button>
+        </form>
+    </div>
+{% endblock %}
