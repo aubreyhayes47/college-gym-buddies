@@ -16,7 +16,7 @@ def check_ending(address, end):
 
 def send_email(recipient, subject_line, html_body):
     configuration = ElasticEmail.Configuration()
-    configuration.api_key['apikey'] = '320AFEE6A10D141A9F07AA6C11E56F5FE5186412E0A7830F2B33C9DD97B249454FDAF46FCC09E4916B68B68C1FE390B1'
+    configuration.api_key['apikey'] = ''#Insert API Key Here
     with ElasticEmail.ApiClient(configuration) as api_client:
         api_instance = emails_api.EmailsApi(api_client)
         email_transactional_message_data = EmailTransactionalMessageData(
